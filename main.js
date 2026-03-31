@@ -2,6 +2,7 @@
 const noLoveBtn = document.getElementById("noLoveBtn");
 const askRealBtn = document.getElementById("askRealBtn");
 const loveBtn = document.getElementById("loveBtn");
+const loveMoreBtn = document.getElementById("loveMoreBtn");
 const trollText = document.getElementById("trollText");
 
 const popup = document.getElementById("popup");
@@ -82,6 +83,10 @@ function init() {
 
   loveBtn.addEventListener("click", () => {
     window.location.href = "love.html";
+  });
+
+  loveMoreBtn.addEventListener("click", () => {
+    window.location.href = "loveMore.html";
   });
 
   
