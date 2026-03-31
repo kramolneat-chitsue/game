@@ -1,6 +1,7 @@
 // ====== ELEMENT ======
 const pages = ["landing", "game", "meme", "result"];
 const noLoveBtn = document.getElementById("noLoveBtn");
+const askRealBtn = document.getElementById("askRealBtn");
 
 const loveBtn = document.getElementById("loveBtn");
 const trollText = document.getElementById("trollText");
@@ -49,35 +50,38 @@ function showTrollText() {
 }
 
 
-noLoveBtn.addEventListener("click", () => {
+function showPopup() {
+  const popup = document.getElementById("popup");
+  const sound = document.getElementById("popupSound");
+
   popup.classList.remove("hidden");
-});
-
-
-// ไปหน้าเกม
-function goToGame() {
-  document.getElementById("landing").classList.add("hidden");
-  document.getElementById("game").classList.remove("hidden");
+  sound.currentTime = 0; // รีเสียงทุกครั้ง
+  sound.play();
 }
 
-// ไปหน้าจบ
-function goToResult() {
-  document.getElementById("game").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
-}
 
-// ไปหน้า meme
-function goToMeme() {
-  document.getElementById("game").classList.add("hidden");
-  document.getElementById("meme").classList.remove("hidden");
-}
-
-// ====== EVENT ======
 function init() {
-  // หน้าแรก
+  
   noLoveBtn.addEventListener("mouseover", () => {
     moveButton(noLoveBtn);
     showTrollText();
+  });
+
+  noLoveBtn.addEventListener("click", () => {
+    popup.classList.remove("hidden");
+    showPopup();
+    noLoveBtn.style.display = "none";
+  });
+
+  askRealBtn.addEventListener("click", () => {
+    const crack = document.getElementById("crackEffect");
+    const sound = document.getElementById("crackSound");
+    crack.classList.remove("hidden");
+    sound.play();
+
+    setTimeout(() => {
+      location.reload();
+    }, 800);
   });
 
   loveBtn.addEventListener("click", goToGame);

@@ -44,6 +44,11 @@ button {
   position: absolute;
 }
 
+#askRealBtn {
+  background: #01c0ff;
+  color: rgb(0, 0, 0);
+}
+
 /* ซ่อน */
 .hidden {
   display: none;
@@ -73,8 +78,44 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 10px;
+  background: rgb(19, 255, 7);
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.popup img {
+  width: 250px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.popup button {
+  align-self: center;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.crack {
+  animation: shake 0.3s;
+  position: fixed;   /* 👈 ทำให้เต็มจอ */
+  top: 0;
+  left: 0;
+  width: 100vw;      /* 👈 เต็มหน้าจอ */
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999;     /* 👈 ทับทุกอย่าง */
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(5px, -5px); }
+  50% { transform: translate(-5px, 5px); }
+  75% { transform: translate(5px, 5px); }
+  100% { transform: translate(0); }
 }
