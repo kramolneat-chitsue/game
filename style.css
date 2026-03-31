@@ -1,0 +1,80 @@
+/* Love color palette */
+:root {
+  --love-color: #FF6B9D;
+  --love-dark: #E75480;
+  --neutral: #999999;
+}
+
+body {
+  font-family: sans-serif;
+  background: #ffe6eb;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* layout */
+.container {
+  margin-top: 100px;
+}
+
+/* ปุ่ม */
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* สีปุ่ม */
+#loveBtn, #yesBtn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#loveMoreBtn {
+  background: #FF66CC;
+  color: white;
+}
+
+#noLoveBtn, #noBtn {
+  background: gray;
+  color: white;
+  position: absolute;
+}
+
+/* ซ่อน */
+.hidden {
+  display: none;
+}
+
+/* รูป */
+img {
+  width: 220px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* ข้อความแซว */
+#trollText {
+  margin-top: 20px;
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+.backBtn {
+  background: #333;
+  color: white;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
