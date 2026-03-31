@@ -1,13 +1,9 @@
 // ====== ELEMENT ======
-const pages = ["landing", "game", "meme", "result"];
 const noLoveBtn = document.getElementById("noLoveBtn");
 const askRealBtn = document.getElementById("askRealBtn");
-
 const loveBtn = document.getElementById("loveBtn");
 const trollText = document.getElementById("trollText");
 
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
 const popup = document.getElementById("popup");
 
 // ====== DATA ======
@@ -84,14 +80,11 @@ function init() {
     }, 800);
   });
 
-  loveBtn.addEventListener("click", goToGame);
-
-  // หน้าเกม
-  noBtn.addEventListener("mouseover", () => {
-    moveButton(noBtn);
+  loveBtn.addEventListener("click", () => {
+    window.location.href = "love.html";
   });
 
-  yesBtn.addEventListener("click", goToResult);
+  
 }
 
 
