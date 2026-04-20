@@ -63,112 +63,73 @@
     <div id="bookContainer" class="book-container">
         <div id="myBook" class="book">
             
-            <!-- หน้าสุดท้าย -->
-            <div class="page" style="z-index: 1;">
+            <!-- หน้าสุดท้าย (End) - z-index: 10 -->
+            <div class="page" id="page-5" style="z-index: 10;">
                 <div class="page-side front bg-rose-50 flex flex-col justify-center items-center text-center p-8">
-                    <div class="text-6xl mb-6">💑</div>
-                    <h3 class="text-2xl font-bold text-rose-600 mb-4">To Be Continued...</h3>
-                    <p class="text-gray-500 italic text-sm">ขอบคุณที่เป็นความสุขให้กันเสมอมา</p>
-                    <div class="mt-8 pt-6 border-t border-rose-200 w-full text-rose-300 font-bold tracking-widest uppercase">Love You Always</div>
+                    <div class="text-5xl mb-6">💑</div>
+                    <h3 class="text-2xl font-bold text-rose-600 mb-4">Forever Together</h3>
+                    <p class="text-gray-500 italic leading-relaxed">
+                        ขอบคุณที่เป็นความสุขให้เค้านะ<br>จับมือกันไปนานๆ นะครับ
+                    </p>
                 </div>
                 <div class="page-side back bg-rose-100 flex items-center justify-center">
-                    <span class="text-rose-300 font-bold uppercase tracking-widest">∞</span>
+                    <span class="text-rose-300 font-bold uppercase tracking-widest text-xs">The End</span>
                 </div>
             </div>
 
-            <!-- หน้า 6 -->
-            <div class="page" style="z-index: 2;" onclick="flip(this)">
+            <!-- หน้า 4 - z-index: 20 -->
+            <div class="page" id="page-4" style="z-index: 20;" onclick="flip(this, 4)">
                 <div class="page-side front">
-                    <div class="photo-frame" style="transform: rotate(1deg);">
-                        <img src="https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"อนาคตที่อยากมีเธอ"</p>
+                    <img src="https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"มองกี่ครั้งก็ยังยิ้มได้เสมอ"</p>
                 </div>
                 <div class="page-side back">
-                    <div class="photo-frame" style="transform: rotate(-1deg);">
-                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"สัญญาว่าจะดูแลอย่างดี"</p>
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"รักนะตัวแสบ"</p>
                 </div>
             </div>
 
-            <!-- หน้า 5 -->
-            <div class="page" style="z-index: 3;" onclick="flip(this)">
+            <!-- หน้า 3 - z-index: 30 -->
+            <div class="page" id="page-3" style="z-index: 30;" onclick="flip(this, 3)">
                 <div class="page-side front">
-                    <div class="photo-frame" style="transform: rotate(-2deg);">
-                        <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"ทุกที่ที่มีเธอคือที่ที่ดีที่สุด"</p>
+                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"ความทรงจำที่ดีที่สุดของเรา"</p>
                 </div>
                 <div class="page-side back">
-                    <div class="photo-frame" style="transform: rotate(2deg);">
-                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"รอยยิ้มนี้ที่ทำให้ใจละลาย"</p>
+                    <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"ขอบคุณที่เดินเคียงข้างกัน"</p>
                 </div>
             </div>
 
-            <!-- หน้า 4 -->
-            <div class="page" style="z-index: 4;" onclick="flip(this)">
+            <!-- หน้า 2 - z-index: 40 -->
+            <div class="page" id="page-2" style="z-index: 40;" onclick="flip(this, 2)">
                 <div class="page-side front">
-                    <div class="photo-frame" style="transform: rotate(1deg);">
-                        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"ผ่านร้อนผ่านหนาวมาด้วยกัน"</p>
+                    <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"หัวเราะด้วยกันแบบนี้ตลอดไปนะ"</p>
                 </div>
                 <div class="page-side back">
-                    <div class="photo-frame" style="transform: rotate(-1deg);">
-                        <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"ขอบคุณที่ไม่เคยปล่อยมือกัน"</p>
+                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500" class="photo-box">
+                    <p class="text-center text-gray-600 italic text-sm">"เธอคือของขวัญที่ดีที่สุด"</p>
                 </div>
             </div>
 
-            <!-- หน้า 3 -->
-            <div class="page" style="z-index: 5;" onclick="flip(this)">
-                <div class="page-side front">
-                    <div class="photo-frame" style="transform: rotate(-1deg);">
-                        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"ความทรงจำแสนพิเศษ"</p>
-                </div>
-                <div class="page-side back">
-                    <div class="photo-frame" style="transform: rotate(1deg);">
-                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"วันที่ฟ้าสดใสเพราะมีเธอ"</p>
-                </div>
-            </div>
-
-            <!-- หน้า 2 -->
-            <div class="page" style="z-index: 6;" onclick="flip(this)">
-                <div class="page-side front">
-                    <div class="photo-frame" style="transform: rotate(2deg);">
-                        <img src="image\ict.jpg" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"จุดเริ่มต้นที่เราได้เจอกัน"</p>
-                </div>
-                <div class="page-side back">
-                    <div class="photo-frame" style="transform: rotate(-2deg);">
-                        <img src=image\mlc.JPG" class="photo-box">
-                    </div>
-                    <p class="text-center text-gray-400 italic text-[10px]">"20092560 ที่เราคบกันที่นี้"</p>
-                </div>
-            </div>
-
-            <!-- หน้าปก -->
-            <div class="page" style="z-index: 7;" onclick="flip(this)">
+            <!-- หน้าปก - z-index: 50 (สูงที่สุดเพื่อให้เปิดก่อน) -->
+            <div class="page" id="page-1" style="z-index: 50;" onclick="flip(this, 1)">
                 <div class="page-side front cover-front flex flex-col items-center justify-center text-center">
-                    <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md shadow-2xl border-4 border-white/30">
+                    <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md shadow-2xl">
                         <span class="text-5xl">❤️</span>
                     </div>
-                    <h2 class="text-3xl font-bold tracking-[0.2em] mb-2 uppercase drop-shadow-md">Our Love</h2>
-                    <p class="text-[10px] opacity-80 uppercase tracking-[0.3em] font-light">The Journey of Us</p>
-                    <div class="mt-8 text-[11px] bg-black/10 px-4 py-1 rounded-full animate-pulse">Tap to start</div>
+                    <h2 class="text-3xl font-bold tracking-widest mb-2">MY LOVE</h2>
+                    <p class="text-[10px] opacity-80 uppercase tracking-widest">Tap to Open</p>
                 </div>
-                <div class="page-side back bg-white flex flex-col justify-center items-center p-8 text-center">
-                    <div class="text-4xl mb-4">✨</div>
-                    <p class="text-gray-500 italic text-sm leading-relaxed">"ในบรรดาความทรงจำทั้งหมด... การได้พบเธอคือสิ่งที่ดีที่สุดที่เคยเกิดขึ้นกับเค้า"</p>
+                <div class="page-side back">
+                    <div class="flex flex-col justify-center items-center h-full p-4 text-center">
+                        <div class="text-4xl mb-4">✨</div>
+                        <p class="text-gray-500 italic text-sm leading-relaxed mb-6">
+                            "การได้พบเธอคือสิ่งที่ดีที่สุดที่เคยเกิดขึ้นในชีวิตเค้า"
+                        </p>
+                        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=500" class="photo-box">
+                    </div>
                 </div>
             </div>
 

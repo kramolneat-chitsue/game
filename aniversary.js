@@ -1,5 +1,13 @@
-let isOpened = false;
+
 let musicPlaying = false;
+let isOpened = false;      
+const originalZIndices = {
+    1: 50,
+    2: 40,
+    3: 30,
+    4: 20,
+    5: 10
+};
 
 function updateCounter() {
     const startDate = new Date('2017-09-20'); // เปลี่ยนวันที่เริ่มคบตรงนี้
@@ -57,17 +65,34 @@ function toggleBook() {
         if(!musicPlaying) toggleMusic();
     } else {
         const pages = document.querySelectorAll('.page');
-        pages.forEach(p => p.classList.remove('flipped'));
+        pages.forEach((p, index) => {
+            p.classList.remove('flipped');
+            // คืนค่า z-index เดิมตาม id
+            const pageId = p.id.split('-')[1];
+            p.style.zIndex = originalZIndices[pageId];
+        });
         book.classList.remove('open');
-        setTimeout(() => { container.classList.remove('active'); }, 600);
-        btnText.innerText = "เริ่มการเดินทาง";
+        setTimeout(() => container.classList.remove('active'), 600);
+        btnText.innerText = "เปิดสมุดภาพ";
         btnIcon.innerText = "📖";
         isOpened = false;
     }
 }
 
-function flip(element) {
-    element.classList.toggle('flipped');
+function flip(element, pageNum) {
+    const isFlippingToBack = !element.classList.contains('flipped');
+    
+    if (isFlippingToBack) {
+        element.classList.add('flipped');
+        setTimeout(() => {
+            if(element.classList.contains('flipped')) {
+                element.style.zIndex = pageNum;
+            }
+        }, 600);
+    } else {
+        element.classList.remove('flipped');
+        element.style.zIndex = originalZIndices[pageNum];
+    }
 }
 
 function showLoveLetter() {
