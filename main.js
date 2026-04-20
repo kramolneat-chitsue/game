@@ -33,6 +33,7 @@ function moveButton(button) {
   const x = Math.random() * (window.innerWidth - 150);
   const y = Math.random() * (window.innerHeight - 80);
 
+  button.style.position = "fixed";
   button.style.left = x + "px";
   button.style.top = y + "px";
 
@@ -52,14 +53,14 @@ function showPopup() {
   const sound = document.getElementById("popupSound");
 
   popup.classList.remove("hidden");
-  sound.currentTime = 0; // รีเสียงทุกครั้ง
+  sound.currentTime = 0;
   sound.play();
 }
 
 
 function init() {
   
-  noLoveBtn.addEventListener("mouseover", () => {
+  noLoveBtn.addEventListener("mouseenter", () => {
     moveButton(noLoveBtn);
     showTrollText();
   });
@@ -73,7 +74,9 @@ function init() {
   askRealBtn.addEventListener("click", () => {
     const crack = document.getElementById("crackEffect");
     const sound = document.getElementById("crackSound");
+
     crack.classList.remove("hidden");
+    sound.currentTime = 0;
     sound.play();
 
     setTimeout(() => {

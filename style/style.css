@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffd6e0, #ffe9f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  color: #ff4d88;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.btn-group button {
+  margin: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#loveBtn {
+  background: #ff6fa5;
+  color: white;
+}
+
+#loveMoreBtn {
+  background: #ffb3c6;
+}
+
+#noLoveBtn {
+  background: #ddd;
+}
+
+#askRealBtn {
+  background: #01c0ff;
+  color: rgb(0, 0, 0);
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.popup img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(19, 255, 7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.popup img {
+  width: 250px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.popup button {
+  align-self: center;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.crack {
+  animation: shake 0.3s;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999;  
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(5px, -5px); }
+  50% { transform: translate(-5px, 5px); }
+  75% { transform: translate(5px, 5px); }
+  100% { transform: translate(0); }
+}
