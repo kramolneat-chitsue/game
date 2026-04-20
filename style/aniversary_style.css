@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
 
+:root {
+    --primary-rose: #e11d48;
+    --soft-rose: #fff1f2;
+}
+
 body {
     font-family: 'Prompt', sans-serif;
     background: radial-gradient(circle, #fff1f2 0%, #ffe4e6 100%);
@@ -12,7 +17,42 @@ body {
     margin: 0;
 }
 
-/* ส่วนควบคุมการแสดงผลของหนังสือ */
+/* กิมมิก: หัวใจพื้นหลังจางๆ */
+.bg-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-heart {
+    position: absolute;
+    color: rgba(225, 29, 72, 0.05);
+    animation: floatBackground 15s linear infinite;
+}
+
+@keyframes floatBackground {
+    0% { transform: translateY(110vh) rotate(0deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* ตัวนับเวลา Relationship Counter */
+.counter-badge {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.1);
+    border: 1px solid rgba(225, 29, 72, 0.2);
+    font-size: 0.9rem;
+    color: var(--primary-rose);
+    margin-bottom: 20px;
+}
+
 .book-container {
     perspective: 2000px;
     display: flex;
@@ -25,16 +65,16 @@ body {
 }
 
 .book-container.active {
-    height: 450px;
+    height: 480px;
     opacity: 1;
     visibility: visible;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
 .book {
-    width: 300px;
-    height: 400px;
+    width: 320px;
+    height: 420px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,8 +105,8 @@ body {
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    box-shadow: inset -1px 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    box-shadow: inset -1px 0 10px rgba(0,0,0,0.05);
     border: 1px solid #f3f4f6;
 }
 
@@ -91,16 +131,28 @@ body {
     background: linear-gradient(135deg, #e11d48 0%, #fb7185 100%);
     color: white;
     border-left: 10px solid #9f1239;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
+}
+
+.photo-frame {
+    background: white;
+    padding: 8px 8px 25px 8px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 50;
 }
 
 .photo-box {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #f9f9f9;
 }
 
 .heart-fly {
@@ -114,14 +166,6 @@ body {
     0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
     20% { opacity: 1; }
     100% { transform: translateY(-100vh) rotate(360deg) scale(1.5); opacity: 0; }
-}
-
-.btn-main {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn-main:active {
-    transform: scale(0.95);
 }
 
 /* Modal Styles */
@@ -143,16 +187,53 @@ body {
 
 .modal-content {
     background: white;
-    padding: 2rem;
-    border-radius: 2rem;
-    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    max-width: 450px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    transform: scale(0.9);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    border: 4px solid #fff1f2;
 }
 
 @keyframes popIn {
-    to { transform: scale(1); }
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* กิมมิก: Music Player Button */
+.music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 100;
+    border: 2px solid var(--soft-rose);
+}
+
+.music-waves {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 15px;
+}
+
+.wave {
+    width: 3px;
+    background: var(--primary-rose);
+    animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { height: 5px; }
+    50% { height: 15px; }
 }
