@@ -1,15 +1,18 @@
+// ====== ELEMENT ======
 const board = document.getElementById("board");
 const statusEl = document.getElementById("status");
 const rollBtn = document.getElementById("rollBtn");
 const resetBtn = document.getElementById("resetBtn");
 
+// ====== STATE ======
 let position = 1;
 
-// 🔊 เสียง
-const diceSound = new Audio("dice.mp3");
-const winSound = new Audio("clap.mp3");
+// ====== SOUND ======
+const diceSound = new Audio("sound/dice.mp3");
+const winSound = new Audio("sound/win.mp3");
+const kissSound = new Audio("sound/kiss.mp3");
 
-// 🐍 งู + 🪜 บันได
+// ====== DATA ======
 const snakesAndLadders = {
   4: 14,
   9: 31,
@@ -25,24 +28,71 @@ const snakesAndLadders = {
   99: 78
 };
 
-// 🧱 สร้างกระดาน
+// 💖 ข้อความน่ารัก
+const moveTexts = [
+  "ค่อยๆไปด้วยกันนะ 💖",
+  "อีกนิดเดียวเอง 🥺",
+  "ไปต่อกันนน ✨",
+  "อยู่ด้วยกันแบบนี้ดีแล้ว 💕",
+  "ไม่ต้องรีบก็ได้นะ 😌"
+];
+
+// ====== INIT BOARD ======
 for (let i = 100; i >= 1; i--) {
   const cell = document.createElement("div");
   cell.classList.add("cell");
   cell.id = "cell-" + i;
-  cell.innerText = i;
+
+  let text = i;
+  if (snakesAndLadders[i]) {
+    text += i < snakesAndLadders[i] ? " 🪜" : " 🐍";
+  }
+
+  cell.innerText = text;
   board.appendChild(cell);
 }
 
-// 👤 อัปเดตตำแหน่ง
+// ====== HELPERS ======
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function updatePlayer() {
   document.querySelectorAll(".cell").forEach(c => c.classList.remove("player"));
   const cell = document.getElementById("cell-" + position);
   if (cell) cell.classList.add("player");
 }
 
-// 🎲 ทอยลูกเต๋า
-rollBtn.addEventListener("click", () => {
+function showMoveText() {
+  const msg = moveTexts[Math.floor(Math.random() * moveTexts.length)];
+  statusEl.innerText = msg;
+}
+
+function showKissScene() {
+  const scene = document.getElementById("kissScene");
+  scene.classList.remove("hidden");
+
+  kissSound.currentTime = 0;
+  kissSound.play().catch(()=>{});
+ 
+  setTimeout(() => {
+    window.location.href = "aniversary.html"; 
+  }, 2500);
+}
+
+
+async function moveStepByStep(steps) {
+  for (let i = 0; i < steps; i++) {
+    await delay(250);
+
+    position++;
+    updatePlayer();
+    showMoveText();
+  }
+}
+
+// ====== EVENT ======
+rollBtn.addEventListener("click", async () => {
   const dice = Math.floor(Math.random() * 6) + 1;
 
   diceSound.currentTime = 0;
@@ -50,51 +100,52 @@ rollBtn.addEventListener("click", () => {
 
   statusEl.innerText = `ทอยได้ ${dice}`;
 
-  let newPos = position + dice;
-
-  if (newPos > 100) {
-    statusEl.innerText += " (เกิน 100 อดเดิน 😝)";
+  if (position + dice > 100) {
+    statusEl.innerText += " (ยังไปไม่ถึงนะ 😝)";
     return;
   }
 
-  position = newPos;
+  rollBtn.disabled = true;
 
-  // 🐍 check
+  await moveStepByStep(dice);
+
+  // 🐍 / 🪜
   if (snakesAndLadders[position]) {
     const old = position;
-    position = snakesAndLadders[position];
+    const target = snakesAndLadders[position];
 
-    if (position > old) {
-      statusEl.innerText += ` 🪜 ขึ้นไป ${position}`;
-    } else {
-      statusEl.innerText += ` 🐍 ลงไป ${position}`;
-    }
+    statusEl.innerText = position < target
+      ? "🪜 โชคดีเลย ได้ไปต่อ 💕"
+      : "🐍 ไม่เป็นไรนะ ไปใหม่ด้วยกัน 🥺";
+
+    await delay(500);
+
+    position = target;
+    updatePlayer();
   }
 
-  updatePlayer();
-
-  // 🎉 ชนะ
+  // 🎉 WIN
   if (position === 100) {
-    statusEl.innerText = "🎉 ชนะแล้ว! 💖";
+    statusEl.innerText = "🎉 ถึงปลายทางแล้ว 💖";
 
     winSound.currentTime = 0;
     winSound.play().catch(()=>{});
 
-    rollBtn.disabled = true;
-
     setTimeout(() => {
-      window.location.href = "index.html";
-    }, 3000);
+      showKissScene();
+    }, 1000);
   }
+
+  rollBtn.disabled = false;
 });
 
-// 🔄 รีเกม
+// ====== RESET ======
 resetBtn.addEventListener("click", () => {
   position = 1;
   rollBtn.disabled = false;
-  statusEl.innerText = "เริ่มใหม่!";
+  statusEl.innerText = "เริ่มใหม่อีกครั้งนะ 💖";
   updatePlayer();
 });
 
-// start
+// ====== START ======
 updatePlayer();
