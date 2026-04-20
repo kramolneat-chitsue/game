@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffd6e0, #fff0f5);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+.tag {
+  font-size: 14px;
+  color: #ff6fa5;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.choices button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #ffe4ec;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.choices button:hover {
+  background: #ffb3c6;
+  transform: scale(1.05);
+}
+
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ff4d88;
+}
+
+.next {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #ff6fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
