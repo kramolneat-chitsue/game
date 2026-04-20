@@ -11,7 +11,7 @@ const questions = [
   },
   {
     question: "เราคุยกันครั้งแรกเดือนไหน?",
-    choices: ["มกราคม.", "กรกฏาคม", "สิงหาคม"],
+    choices: ["มกราคม", "กรกฏาคม", "สิงหาคม"],
     answer: "จำไม่ได้หรอก 😏"
   },
   {
@@ -58,7 +58,7 @@ function showQuestion() {
 function checkAnswer(choice) {
   const correctAnswer = questions[current].answer;
   if (choice === correctAnswer) {
-    handleNext("ถูกต้อง! 💖", 800);
+    handleNext("ถูกต้อง! 💖", 1000);
     return;
   }
   const answerMap = {
