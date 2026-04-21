@@ -2,15 +2,18 @@
 let musicPlaying = false;
 let isOpened = false;      
 const originalZIndices = {
-    1: 50,
-    2: 40,
-    3: 30,
-    4: 20,
-    5: 10
+    1: 80,
+    2: 70,
+    3: 60,
+    4: 50,
+    5: 40,
+    6: 30,
+    7: 20,
+    8: 10
 };
 
 function updateCounter() {
-    const startDate = new Date('2017-09-20'); // เปลี่ยนวันที่เริ่มคบตรงนี้
+    const startDate = new Date('2017-09-20');
     const now = new Date();
     const diffTime = Math.abs(now - startDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
