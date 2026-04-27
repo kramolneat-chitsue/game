@@ -6,6 +6,12 @@
     <title>บันทึกรักของเรา - Anniversary Flipbook (Special Edition)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style\aniversary_style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init("yN_VtH8m_XVTEgX2g");
+    })();
+    </script>
 </head>
 <body>
 
@@ -66,7 +72,7 @@
         <div id="myBook" class="book">
             
             <!-- หน้าสุดท้าย (End) - z-index: 10 -->
-            <div class="page" id="page-8" style="z-index: 10;">
+            <div class="page" id="page-4" style="z-index: 10;">
                 <div class="page-side front bg-rose-50 flex flex-col justify-center items-center text-center p-8">
                     <div class="text-5xl mb-6">💑</div>
                     <h3 class="text-2xl font-bold text-rose-600 mb-4">Forever Together</h3>
@@ -79,143 +85,37 @@
                 </div>
             </div>
 
-             <!-- หน้า 7 - z-index: 20 -->
-            <div class="page" id="page-7" style="z-index: 20;" onclick="flip(this, 7)">
-                <div class="page-side front flex flex-col justify-center">
-                    <img src="image\all photo\769a3001-e2e4-4561-b86f-6ee2cfb77dab.jpg" class="photo-box">
-                    <div class="text-center">
-                        <p class="text-rose-500 font-semibold text-sm mb-1">✈️ Adventure Time</p>
-                        <p class="text-gray-600 italic text-xs mb-1">"แล้วเราก็ไป honey honey honey moon เอ้ยไปเที่ยว"</p>
-                        <p class="text-gray-400 text-[10px] tracking-tighter">"Baby, got drip (Drip), drip (Drip), drip (Drip), drip"</p>
-                    </div>
-                </div>
-                <div class="page-side back bg-slate-50 flex flex-col items-center justify-center text-center">
-                    <div class="mb-4 text-3xl">🌏</div>
-                    <p class="text-gray-700 font-bold text-sm mb-2">"จำได้ว่ามันโคตรจะดี"</p>
-                    <p class="text-gray-500 text-xs mb-4 px-4 leading-relaxed">"และมีอีกที่มากมายที่เราได้ไปด้วยกัน"</p>
-                    <div class="flex flex-wrap justify-center gap-1 px-4">
-                        <span class="location-tag">🇯🇵 ญี่ปุ่น 1</span>
-                        <span class="location-tag">🇯🇵 ญี่ปุ่น 2</span>
-                        <span class="location-tag">🏝️ บาหลี</span>
-                        <span class="location-tag">🇵🇭 ฟิลิปปินส์</span>
-                        <span class="location-tag">🇹🇷 ตุรกี</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- หน้า 6 - z-index: 20 -->
-            <div class="page" id="page-6" style="z-index: 30;" onclick="flip(this, 6)">
-                <div class="page-side front">
-                    <br>
-                    <img src="image\all photo\3a098b63-2e59-4516-8a1a-51ab9fcaf49c.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"แล้วเทอก็กลับมา"</p>
-                </div>
-                    <div class="page-side back flex flex-col justify-center items-center bg-[#fffcf5] p-10">
-                    <!-- ดีไซน์ส่วนหัวข้อของหน้านี้ -->
-                    <div class="text-rose-300 text-3xl mb-4">💬</div>
-                    
-                    <!-- ส่วนของข้อความ -->
-                    <div class="relative bg-white/60 p-6 rounded-2xl border border-rose-100 shadow-sm backdrop-blur-sm">
-                        <!-- ไอคอน Quote -->
-                        <div class="absolute -top-3 -left-2 text-rose-200 text-4xl opacity-50">"</div>
-                        
-                        <div class="space-y-4">
-                            <p class="text-center text-gray-700 italic text-sm leading-relaxed">
-                                "บอกตรงๆ ว่า <span class="text-rose-500 font-semibold">คิดถึงมากจริงๆ</span><br>ก็ไม่คิดเหมือนกันว่าจะรอได้นานขนาดนี้"
-                            </p>
-                            
-                            <div class="h-px bg-rose-50 w-full mx-auto"></div>
-                            
-                            <p class="text-center text-gray-600 italic text-[13px] leading-relaxed">
-                                "ทั้งเรื่องโควิด... แล้วก็ตอนที่เราทะเลาะกัน<br>จนต้องห่างกันไปช่วงนึง..."
-                            </p>
-                            
-                            <p class="text-center text-rose-400 italic text-xs font-medium">
-                                "คิดถึงตอนนั้นแล้วก็แอบเศร้าเนอะ"
-                            </p>
-                        </div>
-
-                        <!-- ไอคอน Quote ปิด -->
-                        <div class="absolute -bottom-6 -right-2 text-rose-200 text-4xl opacity-50 rotate-180">"</div>
-                    </div>
-
-                    <div class="mt-8 text-[10px] text-gray-400 uppercase tracking-widest">Memories of us</div>
-                </div>
-            </div>
-
-            <!-- หน้า 5 - z-index: 20 -->
-            <div class="page" id="page-5" style="z-index: 40;" onclick="flip(this, 5)">
-                 <div class="page-side front">
-                    <br>
-                    <img src="image\all photo\40ac66f6-e667-4608-a29e-c6066e2749f8.jpg" class="photo-box" alt="Graduation">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"เรียนจบไปด้วยกัน"</p>
-                </div>
-                <div class="page-side back flex flex-col justify-center items-center bg-[#fffcf5] p-6">
-                    <div class="relative w-full bg-rose-50/50 p-4 rounded-xl border-2 border-dashed border-rose-200">
-                        <!-- ตัวการ์ตูนเส้าขยับได้ -->
-                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-3xl sway">🥺</div>
-                        <div class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-sm text-sm">🇯🇵</div>
-                        
-                        <div class="space-y-2 mt-4">
-                            <p class="text-center text-gray-700 italic text-xs leading-relaxed">
-                                "แล้วเราก็ต้องแยกกันอีกครั้ง..."
-                            </p>
-                            <p class="text-center text-rose-600 font-semibold text-sm">
-                                "เมื่อเธอไปเรียนต่อที่ญี่ปุ่น <span class="text-lg">ตั้งสองปี</span>"
-                            </p>
-                            <div class="flex justify-center gap-2 items-center">
-                                <span class="text-[10px]">☁️</span>
-                                <p class="text-center text-gray-400 text-[10px]">
-                                    ระยะทางอาจจะไกล แต่ใจไม่เคยห่างเลย
-                                </p>
-                                <span class="text-[10px]">☁️</span>
-                            </div>
-                        </div>
-                        <!-- ตัวการ์ตูนเหงาๆ -->
-                        <div class="flex justify-center mt-2 opacity-50">
-                            <span class="text-sm">🚶‍♂️...🗾...🚶‍♀️</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- หน้า 4 - z-index: 20 -->
-            <div class="page" id="page-4" style="z-index: 50;" onclick="flip(this, 4)">
-                <div class="page-side front">
-                    <br>
-                    <img src="image\all photo\417fee98-d3b7-4929-ba35-d09971b9a953.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"แล้วก็มีช่วงที่ต้องแยกจากกันชั่วคราว"</p>
-                </div>
-                <div class="page-side back">
-                    <br>
-                    <img src="image\all photo\2951b2de-6f74-4f22-99b0-9af6ceb046b0.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"เจ้าอ้วนทำอาหาร"</p>
-                </div>
-            </div>
 
             <!-- หน้า 3 - z-index: 30 -->
-            <div class="page" id="page-3" style="z-index: 60;" onclick="flip(this, 3)">
+            <div class="page" id="page-3" style="z-index: 20;" onclick="flip(this, 3)">
                 <div class="page-side front">
-                    <br>
-                    <img src="image\all photo\2a412d3a-a31b-4e94-8d1f-7d49c699c4cd.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"ไปดรีมเวิลด้วยกัน"</p>
+                    <img src="image\all photo\40ac66f6-e667-4608-a29e-c6066e2749f8.jpg" class="photo-box">
+                    <div class="mt-6 text-center">
+                        <p class="text-rose-500 font-bold italic">"มีอะไรอยากบอกเค้ามั้ย?"</p>
+                        <p class="text-[10px] text-gray-400 mt-2 tracking-widest">TAP TO FLIP & WRITE</p>
+                    </div>
                 </div>
-                <div class="page-side back">
-                    <br>
-                    <img src="image\all photo\02ded6c7-b3d1-42b3-9673-d1b6bda006bd.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"ดูหนังด้วยกันแต่ภาพไม่ใช่ครั้งแรก555"</p>
-                    <p class="text-center text-gray-600 italic text-sm">"เรื่องแรกไรตอบ ตอบมาาาา"</p>
+                <div class="page-side back flex flex-col p-6" onclick="event.stopPropagation()">
+                    <div id="message-input-area" class="h-full flex flex-col">
+                        <h4 class="text-rose-600 font-bold mb-4 text-center">เขียนความในใจตรงนี้เลย ✨</h4>
+                        <textarea id="user-message-input" class="flex-1 p-3 border-2 border-rose-100 rounded-xl text-sm focus:outline-none focus:border-rose-300 resize-none" placeholder="พิมพ์ตรงนี้เลยนะ..."></textarea>
+                        <button id="send-message-btn" onclick="sendMessage()" class="mt-4 w-full py-3 bg-rose-500 text-white font-bold rounded-xl shadow-lg hover:bg-rose-600 transition-colors">
+                            ส่งให้เค้า ❤️
+                        </button>
+                    </div>
+                    <div id="message-display-area" class="h-full flex flex-col justify-center items-center text-center hidden animate-fade-in">
+                        <div class="text-4xl mb-4">💌</div>
+                        <p class="text-rose-500 font-bold mb-2">เค้าได้รับข้อความแล้วนะ!</p>
+                        <div class="bg-white p-4 rounded-xl border-2 border-dashed border-rose-200 w-full">
+                            <p id="saved-text" class="text-gray-600 italic text-sm"></p>
+                        </div>
+                        <p class="mt-4 text-[10px] text-gray-400">ข้อความนี้จะถูกเก็บไว้ที่นี่ตลอดไป...</p>
+                    </div>
                 </div>
             </div>
 
             <!-- หน้า 2 - z-index: 40 -->
-            <div class="page" id="page-2" style="z-index: 70;" onclick="flip(this, 2)">
+            <div class="page" id="page-2" style="z-index: 30;" onclick="flip(this, 2)">
                 <div class="page-side front">
                     <br>
                     <img src="image\mlc.JPG" class="photo-box">
@@ -224,14 +124,12 @@
                 </div>
                 <div class="page-side back">
                     <br>
-                    <img src="image\all photo\55e3bbf9-50df-42d2-8f66-199838b5c8ba.jpg" class="photo-box">
-                    <br>
-                    <p class="text-center text-gray-600 italic text-sm">"เที่ยวต่างจังหวัดตัวกันครั้งแรก แม้จะมากลุ่มก็ตาม"</p>
+                    <source src="your-video-file.mp4" type="video/mp4">
                 </div>
             </div>
 
             <!-- หน้าปก - z-index: 50 (สูงที่สุดเพื่อให้เปิดก่อน) -->
-            <div class="page" id="page-1" style="z-index: 80;" onclick="flip(this, 1)">
+            <div class="page" id="page-1" style="z-index: 40;" onclick="flip(this, 1)">
                 <div class="page-side front cover-front flex flex-col items-center justify-center text-center">
                     <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md shadow-2xl">
                         <span class="text-5xl">❤️</span>

@@ -2,14 +2,10 @@
 let musicPlaying = false;
 let isOpened = false;      
 const originalZIndices = {
-    1: 80,
-    2: 70,
-    3: 60,
-    4: 50,
-    5: 40,
-    6: 30,
-    7: 20,
-    8: 10
+    1: 40,
+    2: 30,
+    3: 20,
+    4: 10,
 };
 
 function updateCounter() {
@@ -127,3 +123,26 @@ window.onload = () => {
     updateCounter();
     createBgHearts();
 };
+
+function sendMessage() {
+    const text = document.getElementById("user-message-input").value;
+
+    if (!text.trim()) {
+        alert("พิมพ์ข้อความก่อนนะ 😏");
+        return;
+    }
+
+    emailjs.send("service_249229g", "template_b0jsoge", {
+        message: text
+    })
+    .then(() => {
+        alert("ส่งถึงเค้าแล้ว 💌");
+        
+        // optional: เคลียร์ช่อง
+        document.getElementById("user-message-input").value = "";
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("ส่งไม่สำเร็จ 😢");
+    });
+}
