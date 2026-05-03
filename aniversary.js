@@ -2,11 +2,16 @@
 let musicPlaying = false;
 let isOpened = false;      
 const originalZIndices = {
-    1: 40,
-    2: 30,
-    3: 20,
-    4: 10,
+    1: 50,
+    2: 40,
+    3: 30,
+    4: 20,
+    5: 10
 };
+const bgMusic = document.getElementById("bgMusic");
+const musicWaves = document.getElementById("musicWaves");
+const musicIcon = document.getElementById("musicIcon");
+const video = document.getElementById('memoryVideo');
 
 function updateCounter() {
     const startDate = new Date('2017-09-20');
@@ -29,23 +34,21 @@ function createBgHearts() {
     }
 }
 
-function toggleMusic() {
-    const music = document.getElementById('bgMusic');
-    const waves = document.getElementById('musicWaves');
-    const icon = document.getElementById('musicIcon');
-    
-    if(!musicPlaying) {
-        music.play().catch(() => {
-            console.log("Music play blocked by browser");
-        });
-        waves.style.display = 'flex';
-        icon.style.display = 'none';
-        musicPlaying = true;
+function updateMusicUI() {
+    if (!bgMusic.paused) {
+        musicWaves.style.display = "flex";
+        musicIcon.style.display = "none";
     } else {
-        music.pause();
-        waves.style.display = 'none';
-        icon.style.display = 'block';
-        musicPlaying = false;
+        musicWaves.style.display = "none";
+        musicIcon.style.display = "inline";
+    }
+}
+
+function toggleMusic() {
+    if (bgMusic.paused) {
+        bgMusic.play();
+    } else {
+        bgMusic.pause();
     }
 }
 
@@ -61,7 +64,7 @@ function toggleBook() {
         btnText.innerText = "ปิดสมุดภาพ";
         btnIcon.innerText = "✖️";
         isOpened = true;
-        if(!musicPlaying) toggleMusic();
+        // if(!musicPlaying) toggleMusic();
     } else {
         const pages = document.querySelectorAll('.page');
         pages.forEach((p, index) => {
@@ -88,9 +91,18 @@ function flip(element, pageNum) {
                 element.style.zIndex = pageNum;
             }
         }, 600);
+
+        if (pageNum === 3 && video) {
+            setTimeout(() => {
+                video.play().catch(e => console.log("Video play failed:", e));
+            }, 500); // รอให้แอนิเมชั่นพลิกหน้าไปนิดนึงก่อนค่อยเล่น
+        }
     } else {
         element.classList.remove('flipped');
         element.style.zIndex = originalZIndices[pageNum];
+        if (pageNum === 3 && video) {
+            video.pause();
+        }
     }
 }
 
@@ -119,11 +131,6 @@ function rainHearts() {
     }
 }
 
-window.onload = () => {
-    updateCounter();
-    createBgHearts();
-};
-
 function sendMessage() {
     const text = document.getElementById("user-message-input").value;
 
@@ -137,8 +144,6 @@ function sendMessage() {
     })
     .then(() => {
         alert("ส่งถึงเค้าแล้ว 💌");
-        
-        // optional: เคลียร์ช่อง
         document.getElementById("user-message-input").value = "";
     })
     .catch((error) => {
@@ -146,3 +151,27 @@ function sendMessage() {
         alert("ส่งไม่สำเร็จ 😢");
     });
 }
+
+function startExperience() {
+    const startScreen = document.getElementById("startScreen");
+    const mainContent = document.getElementById("mainContent");
+    const bgMusic = document.getElementById("bgMusic");
+
+    bgMusic.play();
+    startScreen.style.display = "none";
+    mainContent.style.display = "block";
+}
+
+document.getElementById("startScreen").addEventListener("click", startExperience);
+
+window.onload = () => {
+    updateCounter();
+    createBgHearts();
+};
+
+window.addEventListener("load", () => {
+    updateMusicUI();
+});
+
+bgMusic.addEventListener("play", updateMusicUI);
+bgMusic.addEventListener("pause", updateMusicUI);
