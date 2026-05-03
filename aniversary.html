@@ -15,10 +15,16 @@
 </head>
 <body>
 
-    <div class="bg-hearts" id="bgHearts"></div>
-    <div class="counter-badge" id="counter">
-        เราเดินทางร่วมกันมา 0 วันแล้ว ❤️
+    <div id="startScreen">
+        <div class="envelope" id="envelope"></div>
+        <p>กดเพื่อเปิด 💌</p>
     </div>
+
+    <div id="mainContent" style="display: none;">
+        <div class="bg-hearts" id="bgHearts"></div>
+        <div class="counter-badge" id="counter">
+            เราเดินทางร่วมกันมา 0 วันแล้ว ❤️
+        </div>
 
     <div class="text-center p-4">
         <h1 class="text-3xl font-bold text-rose-600 mb-1">Happy Anniversary</h1>
@@ -45,7 +51,7 @@
         </div>
         <span id="musicIcon">🎵</span>
         <audio id="bgMusic" loop>
-            <source src="sound\รักเธอทุกลมหายใจ - รุจ the star [HD] - ศุภรุจ เตชะตานนท์.mp3" type="audio/mpeg">
+            <source src="sound/รักเธอทุกลมหายใจ - รุจ the star [HD] - ศุภรุจ เตชะตานนท์.mp3" type="audio/mpeg">
         </audio>
     </div>
 
@@ -54,7 +60,7 @@
             <div class="text-5xl mb-4">💌</div>
             <h2 class="text-2xl font-bold text-rose-600 mb-4 italic">ถึงคนพิเศษของเค้า</h2>
             <div class="w-12 h-1 bg-rose-200 mx-auto mb-6 rounded-full"></div>
-            <p class="text-gray-600 leading-relaxed mb-8 text-lg">
+            <p class="text-gray-600 leading-relaxed mb-8 text-lg Mali">
                 ขอบคุณที่คอยอยู่ข้างๆ กันมาตลอดนะ ขอบคุณสำหรับรอยยิ้ม เสียงหัวเราะ
                 แม้ว่าเค้าจะงี่เง่าเพียงใด หรือ เอาแต่ใจแค่ไหน หรือหงุดหงิด รำคานเทอมาก แค่ไหนแต่เทอยังคงอดทนเสมอเลย เค้าขอบคุณสำหรับทุกอย่างมากๆเลย
                 ขอโทษที่บางครั้งทำเทอเสียน้ำตานะ และของคุณอีกครั้งที่เทอไมหนีเค้าไปไหน
@@ -72,7 +78,7 @@
         <div id="myBook" class="book">
             
             <!-- หน้าสุดท้าย (End) - z-index: 10 -->
-            <div class="page" id="page-4" style="z-index: 10;">
+            <div class="page" id="page-5" style="z-index: 10;">
                 <div class="page-side front bg-rose-50 flex flex-col justify-center items-center text-center p-8">
                     <div class="text-5xl mb-6">💑</div>
                     <h3 class="text-2xl font-bold text-rose-600 mb-4">Forever Together</h3>
@@ -85,11 +91,10 @@
                 </div>
             </div>
 
-
-            <!-- หน้า 3 - z-index: 30 -->
-            <div class="page" id="page-3" style="z-index: 20;" onclick="flip(this, 3)">
+            <!-- หน้า 4 - z-index: 20 -->
+            <div class="page" id="page-4" style="z-index: 20;" onclick="flip(this, 4)">
                 <div class="page-side front">
-                    <img src="image\all photo\40ac66f6-e667-4608-a29e-c6066e2749f8.jpg" class="photo-box">
+                    <img src="image\cartoon-girl17 (1).jpg" class="photo-box">
                     <div class="mt-6 text-center">
                         <p class="text-rose-500 font-bold italic">"มีอะไรอยากบอกเค้ามั้ย?"</p>
                         <p class="text-[10px] text-gray-400 mt-2 tracking-widest">TAP TO FLIP & WRITE</p>
@@ -114,22 +119,104 @@
                 </div>
             </div>
 
+
+            <!-- หน้า 3 - z-index: 30 -->
+            <div class="page" id="page-3" style="z-index: 30;" onclick="flip(this, 3)">
+                <div class="page-side front bg-slate-50 flex flex-col items-center justify-center text-center">
+                    <div class="text-center mb-4">
+                        <br>
+                        <h4 class="text-rose-600 font-bold text-base">This is Our Journey</h4>
+                        <div class="h-1 w-12 bg-rose-200 mx-auto mt-1 rounded-full"></div>
+                    </div>
+                    
+                    <div class="space-y-1 w-full flex-grow">
+                        <div class="travel-list-item">
+                            <div class="list-icon">🌸</div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-700">JAPAN</p>
+                                <p class="text-[9px] text-gray-400">ซากุระและภูเขาไฟฟูจิ</p>
+                            </div>
+                        </div>
+
+                        <div class="travel-list-item">
+                            <div class="list-icon">🏝️</div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-700">BALI</p>
+                                <p class="text-[9px] text-gray-400">วัดสวยและหาดทรายขาว</p>
+                            </div>
+                        </div>
+
+                        <div class="travel-list-item">
+                            <div class="list-icon">☀️</div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-700">PHILIPPINES</p>
+                                <p class="text-[9px] text-gray-400">ท้องฟ้าสีครามที่สดใส</p>
+                            </div>
+                        </div>
+
+                        <div class="travel-list-item">
+                            <div class="list-icon">🎈</div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-700">TURKEY</p>
+                                <p class="text-[9px] text-gray-400">บอลลูนยามเช้าที่น่าจดจำ</p>
+                            </div>
+                        </div>
+
+                        <div class="travel-list-item ">
+                            <div class="list-icon">🛖</div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-700">MALDIVES</p>
+                                <p class="text-[9px] text-gray-400">ทะเลสวยงาม</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-side back bg-white flex flex-col p-6 items-center">
+                    <div class="mb-4 text-center">
+                        <div class="inline-block px-3 py-1 bg-rose-100 rounded-full mb-1">
+                            <span class="text-rose-500 text-[10px] font-bold uppercase tracking-widest">Our Video</span>
+                        </div>
+                        <h4 class="text-gray-800 font-bold text-lg">Our Mini Memories</h4>
+                        <p class="text-gray-400 text-[10px] italic">ความทรงจำฉบับย่อของเรา</p>
+                    </div>
+                    
+                    <div class="video-container w-full aspect-video mb-4">
+                        <video id="memoryVideo" class="w-full h-full object-cover" controls muted playsinline loop>
+                            <source src="clip/Tor.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="flex-grow flex flex-col justify-center text-center space-y-2">
+                        <div class="text-rose-400 text-xl">🎬</div>
+                        <p class="text-[11px] text-gray-500 leading-relaxed px-4">
+                            "Every frame, every second... <br> is a proof of our love."
+                        </p>
+                    </div>
+
+                    <div class="w-full h-px bg-gradient-to-r from-transparent via-rose-100 to-transparent my-2"></div>
+                    <p class="text-[9px] text-rose-300 font-medium">MADE WITH LOVE BY ME ❤️</p>
+                </div>
+            </div>
+            
             <!-- หน้า 2 - z-index: 40 -->
-            <div class="page" id="page-2" style="z-index: 30;" onclick="flip(this, 2)">
+            <div class="page" id="page-2" style="z-index: 40;" onclick="flip(this, 2)">
                 <div class="page-side front">
                     <br>
                     <img src="image\mlc.JPG" class="photo-box">
                     <br>
                     <p class="text-center text-gray-600 italic text-sm">"ละที่นี้ที่เราได้เป็นแฟนกัน ได้ขอมั้ยนะ"</p>
                 </div>
-                <div class="page-side back">
-                    <br>
-                    <source src="your-video-file.mp4" type="video/mp4">
+                <div class="page-side back bg-slate-50 flex flex-col items-center justify-center text-center">
+                    <div class="text-center">
+                        <p class="text-rose-500 font-semibold text-sm mb-1">Our memories</p>
+                        <p class="text-gray-600 italic text-xs mb-1">มันดีจริงๆนะที่เราได้ใช้เวลาร่วมกัน ไปเที่ยวด้วยกัน เวลาอยู่ด้วยกันก็มีความสุข นั่งดูหนังดูกาตูน หัวเราะด้วยกันทำไรประหลาดๆด้วยกัน มันดีมากจริงๆ</p>
+                    </div>
                 </div>
             </div>
 
             <!-- หน้าปก - z-index: 50 (สูงที่สุดเพื่อให้เปิดก่อน) -->
-            <div class="page" id="page-1" style="z-index: 40;" onclick="flip(this, 1)">
+            <div class="page" id="page-1" style="z-index: 50;" onclick="flip(this, 1)">
                 <div class="page-side front cover-front flex flex-col items-center justify-center text-center">
                     <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md shadow-2xl">
                         <span class="text-5xl">❤️</span>
@@ -141,7 +228,7 @@
                     <div class="flex flex-col justify-center items-center h-full p-4 text-center">
                         <div class="text-4xl mb-4">✨</div>
                         <p class="text-gray-500 italic text-sm leading-relaxed mb-6">
-                            "การได้พบเธอคือสิ่งที่ดีที่สุด ละนี้คือที่ที่เราได้เจอกันครั้งแรกนะ"
+                            "การได้พบเธอคือสิ่งที่ดีที่สุด ละนี้คือที่ที่เราได้เจอกันครั้งแรกนะ จำได้ป่าว"
                         </p>
                         <img src="image\ict.jpg" class="photo-box">
                     </div>
@@ -150,6 +237,9 @@
 
         </div>
     </div>
+    </div>
+
+    
 
     <script src="aniversary.js"></script>
 </body>
