@@ -94,7 +94,7 @@ function showQuestion() {
 function checkAnswer(choice) {
   const correctAnswer = questions[current].answer;
   if (choice === correctAnswer) {
-    handleNext("ถูกต้อง! 💖", 1000);
+    handleNext("ถูกต้อง! 💖", 3000);
     return;
   }
   const answerMap = {
@@ -102,7 +102,7 @@ function checkAnswer(choice) {
     "อะไรก้ได้จ๋า 😏": "อะไรก้ได้จ๋า 😏 ก๊ากก"
   };
   if (answerMap[correctAnswer]) {
-    handleNext(answerMap[correctAnswer], 1000);
+    handleNext(answerMap[correctAnswer], 3000);
     return;
   }
   resultEl.innerText = "ผิด! ลองใหม่อีกทีนะ 💔";
