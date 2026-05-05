@@ -27,17 +27,35 @@ const trollMessages = [
 let moveCount = 0;
 const MAX_MOVE = 10;
 
-function moveButton(button) {
-  if (moveCount >= MAX_MOVE) return;
+function moveButton(button, event) {
+    if (moveCount >= MAX_MOVE) return;
 
-  const x = Math.random() * (window.innerWidth - 150);
-  const y = Math.random() * (window.innerHeight - 80);
+    if (event) {
+        // หยุดทุกพฤติกรรมเดิมของเบราว์เซอร์
+        if (event.cancelable) event.preventDefault();
+        event.stopPropagation();
+    }
 
-  button.style.position = "fixed";
-  button.style.left = x + "px";
-  button.style.top = y + "px";
+    // คำนวณขอบเขตที่ปลอดภัย
+    const padding = 60;
+    const availableWidth = window.innerWidth - button.offsetWidth - padding;
+    const availableHeight = window.innerHeight - button.offsetHeight - padding;
 
-  moveCount++;
+    // สุ่มตำแหน่งใหม่โดยไม่ให้ติดขอบเกินไป
+    const x = Math.max(20, Math.random() * availableWidth);
+    const y = Math.max(20, Math.random() * availableHeight);
+
+    // สุ่มองศาเล็กน้อยให้ดูขยับจริง
+    const rotate = (Math.random() - 0.5) * 20;
+
+    button.style.position = "fixed";
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+    button.style.transform = `rotate(${rotate}deg)`;
+
+    moveCount++;
+    trollText.style.opacity = '1';
+    trollText.innerText = `จับให้ได้สิ! (${moveCount}/${MAX_MOVE})`;
 }
 
 function showTrollText() {
@@ -65,10 +83,18 @@ function init() {
     showTrollText();
   });
 
-  noLoveBtn.addEventListener("click", () => {
-    popup.classList.remove("hidden");
-    showPopup();
-    noLoveBtn.style.display = "none";
+  // สำหรับ Mobile (ใช้ touchstart เพื่อความไว)
+  noLoveBtn.addEventListener('touchstart', (e) => {
+      moveButton(noLoveBtn, e);
+  }, { passive: false });
+
+  // ป้องกันการคลิกซ้ำซ้อน
+  noLoveBtn.addEventListener('click', (e) => {
+      if (moveCount < MAX_MOVE) {
+          moveButton(noLoveBtn, e);
+      } else {
+          popup.classList.remove('hidden');
+      }
   });
 
   askRealBtn.addEventListener("click", () => {
