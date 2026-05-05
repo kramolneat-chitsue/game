@@ -35,17 +35,14 @@ function moveButton(button, event) {
         if (event.cancelable) event.preventDefault();
         event.stopPropagation();
     }
-
-    // คำนวณขอบเขตที่ปลอดภัย
+   
     const padding = 60;
     const availableWidth = window.innerWidth - button.offsetWidth - padding;
     const availableHeight = window.innerHeight - button.offsetHeight - padding;
 
-    // สุ่มตำแหน่งใหม่โดยไม่ให้ติดขอบเกินไป
     const x = Math.max(20, Math.random() * availableWidth);
     const y = Math.max(20, Math.random() * availableHeight);
 
-    // สุ่มองศาเล็กน้อยให้ดูขยับจริง
     const rotate = (Math.random() - 0.5) * 20;
 
     button.style.position = "fixed";
@@ -55,7 +52,8 @@ function moveButton(button, event) {
 
     moveCount++;
     trollText.style.opacity = '1';
-    trollText.innerText = `จับให้ได้สิ! (${moveCount}/${MAX_MOVE})`;
+    // trollText.innerText = `จับให้ได้สิ! (${moveCount}/${MAX_MOVE})`;
+     showTrollText();
 }
 
 function showTrollText() {
@@ -80,19 +78,17 @@ function init() {
   
   noLoveBtn.addEventListener("mouseenter", () => {
     moveButton(noLoveBtn);
-    showTrollText();
+    // showTrollText();
   });
 
   // สำหรับ Mobile (ใช้ touchstart เพื่อความไว)
   noLoveBtn.addEventListener('touchstart', (e) => {
       if (moveCount < MAX_MOVE) {
         moveButton(noLoveBtn, e);
-        showTrollText();
+        // showTrollText();
       }
   }, { passive: false });
   
-
-  // ป้องกันการคลิกซ้ำซ้อน
   noLoveBtn.addEventListener('click', (e) => {
       if (moveCount < MAX_MOVE) {
           moveButton(noLoveBtn, e);
