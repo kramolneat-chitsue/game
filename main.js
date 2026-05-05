@@ -85,8 +85,9 @@ function init() {
 
   // สำหรับ Mobile (ใช้ touchstart เพื่อความไว)
   noLoveBtn.addEventListener('touchstart', (e) => {
-      moveButton(noLoveBtn, e);
+      if (moveCount < MAX_MOVE) moveButton(noLoveBtn, e);
   }, { passive: false });
+  
 
   // ป้องกันการคลิกซ้ำซ้อน
   noLoveBtn.addEventListener('click', (e) => {
